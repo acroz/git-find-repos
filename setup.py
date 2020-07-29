@@ -19,4 +19,5 @@ setup(
     use_scm_version={"version_scheme": "post-release"},
     setup_requires=["setuptools_scm"],
     entry_points={"console_scripts": ["find-git-repos=find_git_repos:main"]},
+    install_requires=["termcolor"],
 )
