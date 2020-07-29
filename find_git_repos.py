@@ -1,8 +1,6 @@
 from pathlib import Path
 from typing import Iterable
 import argparse
-import sys
-import termcolor
 
 
 def is_git_repo(path: Path) -> bool:
@@ -18,15 +16,7 @@ def find_git_repos(path: Path) -> Iterable[Path]:
                 yield from find_git_repos(child)
 
 
-MESSAGE = """
-find-git-repos has been renamed to git-find-repos. Please use it instead.
-Find it at: https://github.com/acroz/git-find-repos
-""".strip()
-
-
 def main() -> None:
-
-    print(termcolor.colored(MESSAGE, "yellow"), file=sys.stderr)
 
     parser = argparse.ArgumentParser()
     parser.add_argument("path", type=Path, nargs="?", default=Path("."))
