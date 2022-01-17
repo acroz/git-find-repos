@@ -1,14 +1,15 @@
-from pathlib import Path
 from typing import Iterable
 import argparse
+import os
+import os.path
 
 
-def is_git_repo(path: Path) -> bool:
-    return (path / ".git").is_dir()
+def is_git_repo(path: str) -> bool:
+    return os.path.isdir(os.path.join(path, ".git"))
 
 
-def find_repos(path: Path) -> Iterable[Path]:
-    for child in path.iterdir():
+def find_repos(path: str) -> Iterable[str]:
+    for child in os.scandir(path):
         if child.is_dir():
             if is_git_repo(child):
                 yield child
@@ -19,8 +20,8 @@ def find_repos(path: Path) -> Iterable[Path]:
 def main() -> None:
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("path", type=Path, nargs="?", default=Path("."))
+    parser.add_argument("path", nargs="?", default=".")
     args = parser.parse_args()
 
     for repo_path in find_repos(args.path):
-        print(repo_path.relative_to(args.path))
+        print(os.path.relpath(repo_path, start=args.path))
