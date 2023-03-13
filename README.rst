@@ -59,3 +59,9 @@ matching.
 When I need to switch to a repo, I run ``repo`` in my shell, type enough of the
 name to match the repo name, then hit enter to exit ``fzy`` and switch to the
 selected repo.
+
+Related projects
+----------------
+
+@robgyiv has reimplemented this tool in Rust - check it out
+`on GitHub <https://github.com/robgyiv/git-find-rs>`_.
