@@ -18,7 +18,6 @@ def find_repos(path: str) -> Iterable[str]:
 
 
 def main() -> None:
-
     parser = argparse.ArgumentParser()
     parser.add_argument("path", nargs="?", default=".")
     args = parser.parse_args()
