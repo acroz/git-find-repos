@@ -1,7 +1,6 @@
 from pathlib import Path
 from setuptools import setup
 
-
 SOURCE_ROOT = Path(__file__).parent
 README = SOURCE_ROOT / "README.rst"
 
