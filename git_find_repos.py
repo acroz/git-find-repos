@@ -5,7 +5,7 @@ import os.path
 
 
 def is_git_repo(path: str) -> bool:
-    return os.path.isdir(os.path.join(path, ".git"))
+    return os.path.exists(os.path.join(path, ".git"))
 
 
 def find_repos(path: str) -> Iterable[str]:
